@@ -22,11 +22,10 @@ export const PermisionProvider = ({ children }: any) => {
   const [permisions, setPermisions] = useState(PermisionInitState);
 
   useEffect(() => {
+    checkLocationPermision();
     AppState.addEventListener('change', state => {
       if (state !== 'active') return;
-
       checkLocationPermision();
-      console.log(state);
     })
   }, [])
 
